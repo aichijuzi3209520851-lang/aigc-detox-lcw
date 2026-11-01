@@ -1,0 +1,54 @@
+MIT License
+
+Copyright (c) 2026 lcw
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+This project is a derivative work that incorporates code and methodology from
+the following MIT-licensed open source projects. Their copyright notices are
+retained below.
+
+1. ai-check  --  https://github.com/HoneyMeta/ai-check-skills
+   The detection engine (scripts/aigc_detox_lcw_scan.py), the rewrite guard
+   (scripts/aigc_detox_lcw_rewrite.py), and the HTML/PDF report skeleton
+   originate from this project.
+
+2. humanizer-zh-academic  --  https://github.com/redbaronyyyyy-eng/humanizer-zh-academic
+   The 16 AI-writing-pattern taxonomy, before/after rewrite examples, register
+   calibration table, and noise-retention principle in references/patterns.md
+   originate from this project.
+
+3. aigc-detector  --  https://github.com/free-revalution/AIGC-Detector-Pro
+   The five-dimension semantic diagnostic vocabulary originates from this
+   project. Its numeric scoring scheme was deliberately not adopted; see
+   references/benchmark.md section 4 for the measured reason.
+
+4. chinese-thesis-workbench  --  https://github.com/ZyhSechub/chinese-thesis-workbench-skill
+   Used as a workflow reference only. Its AIGC style analyzer was evaluated and
+   rejected (7/6 error on the benchmark set); no code from it is included.
+
+5. aigc-down-skill  --  https://github.com/Yezery/aigc-down-skill
+   Archived as a sibling variant for reference only; no code from it is
+   included.
+
+Additions original to this project: the post-rewrite verification loop
+(scripts/aigc_detox_lcw_compare.py) and the clause-level rhythm fallback
+(clause_rhythm_features in scripts/aigc_detox_lcw_scan.py).

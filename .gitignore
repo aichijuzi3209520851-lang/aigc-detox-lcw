@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.DS_Store
+Thumbs.db
+
+# 运行产物：报告、扫描中间结果、改写输出
+report/
+*-report-*.html
+*-report-*.pdf
+*-summary-*.json
+scan.json
+results.json
+repl.json
+*.diff.json
