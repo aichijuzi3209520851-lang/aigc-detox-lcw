@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 lcw
+Copyright (c) 2026 lcw (爱吃橘子)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,6 +19,26 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+## Additional Use Restriction (non-commercial)
+
+The MIT grant above is subject to the following project-level restriction,
+which the author of this project applies to this combined work:
+
+THIS PROJECT IS PROVIDED FOR PERSONAL, EDUCATIONAL AND RESEARCH USE ONLY.
+COMMERCIAL USE IS NOT PERMITTED without prior written permission from the
+author (lcw) and from the authors of the upstream projects listed below.
+
+Prohibited without written permission includes, but is not limited to:
+selling this software or any derivative of it; bundling it into a commercial
+product or paid SaaS; using it to provide paid thesis-rewriting or
+"AI-rate-reduction" services; and including it in paid training courses.
+
+Where this restriction conflicts with the MIT grant, the stricter term
+governs. This restriction does not alter, limit, or revoke any rights granted
+to you by the upstream authors under their own MIT licenses.
 
 ---
 

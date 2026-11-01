@@ -10,6 +10,18 @@
 
 ---
 
+> ## ⚠️ 用之前请先读这三句
+>
+> **1. 禁止商用。** 仅限个人学习、研究与自用。不得销售、不得作为付费服务卖点、不得用于代写代降重。
+> **2. 不保证过检测。** 不对齐知网 / 格子达 / 维普 / Turnitin / GPTZero 等任何平台，不预测通过率。
+> **3. 结果必须你自己复核。** 它会漏判也会误判，改写可能改变原意。论文是你的成果，责任在你。
+>
+> 完整条款见 [**DISCLAIMER.md**](DISCLAIMER.md)（**装完第一次用，Agent 会自动念给你听**）。
+> 首次安装看 [**INSTALL.md**](INSTALL.md)——含豆包 / WorkBuddy / TRAE / ZCode / OpenCode / Codex /
+> Claude Code / DSH 共 9 个 Agent 的**专属部署提示词**，复制粘贴即可，不需要写代码。
+
+---
+
 ## 致谢
 
 **这个项目不是从零开始的。**
@@ -147,18 +159,38 @@ python scripts/aigc_detox_lcw_compare.py 论文.docx 论文-改后.docx --json d
 
 ## 安装
 
-这个目录本身就是 skill 本体（`SKILL.md` + `references/` + `scripts/`）。
-把它放到你的 Agent 的 skills 目录下即可：
+**新手请直接看 [INSTALL.md](INSTALL.md)** —— 里面有 9 个 Agent 的专属部署提示词，复制粘贴给 Agent 就行。
+
+这个目录本身就是 skill 本体（`SKILL.md` + `references/` + `scripts/`）。简要版：
 
 ```bash
-# Claude Code / Codex / DSH / TRAE / ZCode / WorkBuddy 等
-ln -s /path/to/aigc-detox-lcw ~/.claude/skills/aigc-detox-lcw        # macOS / Linux
-# Windows 用 junction（不要用符号链接，跨盘会出问题）
-# New-Item -ItemType Junction -Path "$HOME\.claude\skills\aigc-detox-lcw" -Target "D:\path\to\aigc-detox-lcw"
+git clone https://github.com/aichijuzi3209520851-lang/aigc-detox-lcw.git ~/Documents/aigc-detox-lcw
+
+# macOS / Linux
+ln -s ~/Documents/aigc-detox-lcw ~/.claude/skills/aigc-detox-lcw
 ```
 
-已验证可用：`.dsh` / `.agents` / `.claude` / `.codex` / `.trae-cn` / `.zcode` / `.workbuddy`
-七个目录（豆包 Doubao 读 `.agents/skills`）。
+```powershell
+# Windows：用 junction，不要用符号链接（跨盘会失效）
+New-Item -ItemType Junction -Path "$HOME\.claude\skills\aigc-detox-lcw" -Target "$HOME\Documents\aigc-detox-lcw"
+```
+
+### 各 Agent 的 skills 目录
+
+| Agent | 目录 | 说明 |
+|---|---|---|
+| **豆包 Doubao** | `~/.agents/skills` | 一等公民默认目录，无需配置 |
+| **WorkBuddy** | `~/.workbuddy/skills` | |
+| **TRAE CN / 国际版** | `~/.trae-cn/skills` / `~/.trae/skills` | 目录扫描，无需改 skill-config.json |
+| **ZCode** | `~/.zcode/skills` | 此目录默认不存在，需新建 |
+| **OpenCode** | `~/.config/opencode/skills` | 也读 `.claude/skills`、`.agents/skills` |
+| **Codex (OpenAI)** | `~/.agents/skills` | 也扫项目内 `.agents/skills` |
+| **Claude Code** | `~/.claude/skills` | |
+| **DSH** | `~/.dsh/skills` | |
+| **其他（Cursor 等）** | `~/.agents/skills` | 目前最通用的约定 |
+
+七个目录已在本机实测通过：`.dsh` / `.agents` / `.claude` / `.codex` / `.trae-cn` / `.zcode` / `.workbuddy`。
+**一个源目录可以链到任意多个位置**，改一次全部生效。
 
 **环境要求**：Python 3.9+，`python-docx`（必需）、`reportlab`（出 PDF 时才要）。
 不需要 LibreOffice、不需要 Word 自动化、不需要联网。
