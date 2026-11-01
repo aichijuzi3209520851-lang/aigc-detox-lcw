@@ -23,29 +23,38 @@ SOFTWARE.
 ---
 
 This project is a derivative work that incorporates code and methodology from
-the following MIT-licensed open source projects. Their copyright notices are
-retained below.
+the following MIT-licensed open source projects. Their authors and copyright
+notices are retained below. Credit for the underlying ideas belongs to them.
 
 1. ai-check  --  https://github.com/HoneyMeta/ai-check-skills
+   Author: @HoneyMeta
    The detection engine (scripts/aigc_detox_lcw_scan.py), the rewrite guard
    (scripts/aigc_detox_lcw_rewrite.py), and the HTML/PDF report skeleton
-   originate from this project.
+   originate from this project. Design philosophy borrowed: scripts emit
+   deterministic text signals only and never invent a detector score, and
+   numbers/citations are treated as facts that must survive a rewrite.
 
 2. humanizer-zh-academic  --  https://github.com/redbaronyyyyy-eng/humanizer-zh-academic
+   Author: @redbaronyyyyy-eng
    The 16 AI-writing-pattern taxonomy, before/after rewrite examples, register
    calibration table, and noise-retention principle in references/patterns.md
    originate from this project.
 
-3. aigc-detector  --  https://github.com/free-revalution/AIGC-Detector-Pro
+3. AIGC-Detector-Pro  --  https://github.com/free-revalution/AIGC-Detector-Pro
+   Authors: @free-revalution, @Thundercup
    The five-dimension semantic diagnostic vocabulary originates from this
    project. Its numeric scoring scheme was deliberately not adopted; see
    references/benchmark.md section 4 for the measured reason.
 
-4. chinese-thesis-workbench  --  https://github.com/ZyhSechub/chinese-thesis-workbench-skill
-   Used as a workflow reference only. Its AIGC style analyzer was evaluated and
-   rejected (7/6 error on the benchmark set); no code from it is included.
+4. chinese-thesis-workbench-skill  --  https://github.com/ZyhSechub/chinese-thesis-workbench-skill
+   Author: @ZyhSechub
+   Used as a workflow reference and for the boundary "this module must not
+   promise to bypass or defeat any detector". Its AIGC style analyzer was
+   evaluated and rejected (7/6 error on the benchmark set); no code from it is
+   included.
 
 5. aigc-down-skill  --  https://github.com/Yezery/aigc-down-skill
+   Author: @Yezery
    Archived as a sibling variant for reference only; no code from it is
    included.
 

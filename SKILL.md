@@ -365,18 +365,35 @@ python scripts/aigc_detox_lcw_compare.py a.docx a-new.docx --json diff.json
 
 ## 10. 出处与署名
 
-作者署名 `lcw`，已写在 skill 名与全部脚本文件名上（`aigc-detox-lcw`、`aigc_detox_lcw_*.py`）。
+### 致谢（本项目的思路来源）
 
-本工具不是从零写的，它站在五个开源实现上，只取经过实测验证的那部分（取舍依据见
-`references/benchmark.md`）：
+作者署名 `lcw`，已写在 skill 名与全部脚本文件名上（`aigc-detox-lcw`、`aigc_detox_lcw_*.py`）。
+但**方法论和灵感属于下面五位作者**——他们把自己的工作以 MIT 许可公开，才使这个工具成为可能。
+任何情况下使用或再分发本工具，请连同这份名单一起保留。
+
+| 作者 | 项目 | 学到了什么 | ⭐ |
+|:--|:--|:--|--:|
+| **[@ZyhSechub](https://github.com/ZyhSechub)** | [chinese-thesis-workbench-skill](https://github.com/ZyhSechub/chinese-thesis-workbench-skill) | 报告优先、留痕可追溯，以及**「不承诺绕过任何检测器」的边界**——本工具第 1 条前提由此而来。其检测器实测误差 7/6 题，已弃用 | 594 |
+| **[@redbaronyyyyy-eng](https://github.com/redbaronyyyyy-eng/humanizer-zh-academic)** | [humanizer-zh-academic](https://github.com/redbaronyyyyy-eng/humanizer-zh-academic) | **16 种 AI 写作模式判据**、改写前后对照写法、文体标定、噪声保留原则——方法论主体 | 349 |
+| **[@HoneyMeta](https://github.com/HoneyMeta/ai-check-skills)** | [ai-check-skills](https://github.com/HoneyMeta/ai-check-skills) | **脚本不算分、只给确定性信号，判断权交回人和模型**；数字引用零丢失护栏；风险/缓解**双向**抗误报设计——检测引擎与改写护栏来源 | 32 |
+| **[@free-revalution](https://github.com/free-revalution/AIGC-Detector-Pro)** | [AIGC-Detector-Pro](https://github.com/free-revalution/AIGC-Detector-Pro) | **五维语义诊断**的维度划分。打分制换模型就变、不可复现，故只借维度不借分数 | 157 |
+| **[@Yezery](https://github.com/Yezery/aigc-down-skill)** | [aigc-down-skill](https://github.com/Yezery/aigc-down-skill) | 同源平行实现（相似度 76%），展示同一套判据的不同落地顺序；留档未并入 | 252 |
+
+另谢 **[@Thundercup](https://github.com/Thundercup)** 对 AIGC-Detector-Pro 的贡献。
+
+### 采用与弃用明细
+
+上表为「学到了什么」，下表为「代码/文本层面具体采用了什么」：
 
 | 前身 | 采用的 | 许可证 |
 |---|---|---|
 | [ai-check](https://github.com/HoneyMeta/ai-check-skills) | 检测引擎口径、改写护栏（引用/数字零丢失）、DOCX 原地改写与修订痕迹、HTML/PDF 报告骨架 | MIT |
 | [humanizer-zh-academic](https://github.com/redbaronyyyyy-eng/humanizer-zh-academic) | 16 种 AI 写作模式判据、改写前后对照示例、文体标定、噪声保留原则 | MIT |
 | [aigc-detector](https://github.com/free-revalution/AIGC-Detector-Pro) | 五维语义诊断的**维度名称**（分数制不采用，理由见 benchmark §四） | MIT |
-| [chinese-thesis-workbench](https://github.com/ZyhSechub/chinese-thesis-workbench-skill) | 未并入正文，仅作流程对照；其检测器误差 7/6 题，已弃用 | MIT |
+| [chinese-thesis-workbench](https://github.com/ZyhSechub/chinese-thesis-workbench-skill) | 未并入代码，仅作流程对照与边界表述来源；其检测器误差 7/6 题，已弃用 | MIT |
 | [aigc-down-skill](https://github.com/Yezery/aigc-down-skill) | 未并入正文（与 humanizer 同血缘，相似度 76%），留档备份 | MIT |
+
+五位作者均为 MIT 许可，原始版权声明与署名完整保留在 `LICENSE` 中。
 
 **本次新增、五个前身都没有的第一个环节**：改写后复检闭环（`aigc_detox_lcw_compare.py`）。
 五个前身全部是「扫描 → 改写 → 结束」，没有一家在改完后重新验证。复检器比对风险信号、

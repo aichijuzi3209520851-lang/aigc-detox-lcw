@@ -10,6 +10,29 @@
 
 ---
 
+## 致谢
+
+**这个项目不是从零开始的。**
+
+它的骨架、判据、工具链，来自下面五位作者公开发布、以 MIT 许可开放的工作。我做的是把它们逐项实测、
+择优缝合，再补上两个它们都缺的环节。但**思路和灵感是他们的**，这份名单理应放在最显眼的位置，
+而不是塞在文件末尾。
+
+| 作者 | 项目 | 我从他们那里学到了什么 | ⭐ |
+|:--|:--|:--|--:|
+| **[@ZyhSechub](https://github.com/ZyhSechub)** | [chinese-thesis-workbench-skill](https://github.com/ZyhSechub/chinese-thesis-workbench-skill) | 论文交付要留痕、可追溯：状态机、质量闸门、**报告优先**（先出诊断再动笔）。它的检测器我实测后弃用了（6 道对抗题误差 7），但「不承诺绕过任何检测器」这条边界正是从它这里学来的——我把它变成了本项目的第 1 条前提。 | 594 |
+| **[@redbaronyyyyy-eng](https://github.com/redbaronyyyyy-eng/humanizer-zh-academic)** | [humanizer-zh-academic](https://github.com/redbaronyyyyy-eng/humanizer-zh-academic) | **16 种 AI 写作模式的分类框架**、每一模式「改写前 → 改写后」的对照写法、文体标定表，以及「噪声保留」（别改到 100% 干净，留 2–3 处自然噪声）。本项目方法论层的主体来自这里。 | 349 |
+| **[@HoneyMeta](https://github.com/HoneyMeta/ai-check-skills)** | [ai-check-skills](https://github.com/HoneyMeta/ai-check-skills) | 最关键的一条设计哲学：**脚本不算分、只给确定性文本信号，判断权交回人和模型**。还有「数字和引用是事实，丢了就拒绝落盘」的护栏，以及风险信号 / 缓解信号**双向**设计的抗误报思路。本项目的检测引擎与改写护栏源自这里。 | 32 |
+| **[@free-revalution](https://github.com/free-revalution/AIGC-Detector-Pro)** | [AIGC-Detector-Pro](https://github.com/free-revalution/AIGC-Detector-Pro) | **五维语义诊断**的维度划分：句式规整度 / 逻辑词密度 / 语态特征 / 词汇多样性 / 论证深度。它的打分制我实测后发现换模型就变、不可复现，所以只借维度名不借分数——但它让我第一次意识到「检测」可以拆成多个维度，而不是一张关键词表。 | 157 |
+| **[@Yezery](https://github.com/Yezery/aigc-down-skill)** | [aigc-down-skill](https://github.com/Yezery/aigc-down-skill) | 与 humanizer 同源（相似度 76%）的平行实现。它更细的模式判定细则，以及「先提取待改内容、再改」的四步流程，让我看到**同一套判据可以有不同的落地顺序**。作为备份留档，未并入正文。 | 252 |
+
+另感谢 **[@Thundercup](https://github.com/Thundercup)** 对 AIGC-Detector-Pro 的贡献。
+
+没有这几位把方法论公开写出来，这个仓库不会存在。如果上述任何一位认为此处致谢或署名方式不妥、
+或希望调整引用形式，**请开 issue，我会立即修改**。
+
+---
+
 ## 它解决什么问题
 
 AI 写的文本有两个层次的问题：
@@ -159,19 +182,20 @@ scripts/
 
 ---
 
-## 出处
+## 出处与许可
 
-| 前身 | 采用的 | 许可证 |
-|---|---|---|
-| [ai-check](https://github.com/HoneyMeta/ai-check-skills) | 检测引擎口径、改写护栏、DOCX 改写与修订痕迹、报告骨架 | MIT |
-| [humanizer-zh-academic](https://github.com/redbaronyyyyy-eng/humanizer-zh-academic) | 16 种写作模式判据、对照示例、文体标定、噪声保留 | MIT |
-| [aigc-detector](https://github.com/free-revalution/AIGC-Detector-Pro) | 五维诊断的维度名称（分数制不采用） | MIT |
-| [chinese-thesis-workbench](https://github.com/ZyhSechub/chinese-thesis-workbench-skill) | 仅作流程对照，检测器已弃用（误差 7/6 题） | MIT |
-| [aigc-down-skill](https://github.com/Yezery/aigc-down-skill) | 未并入（与 humanizer 相似度 76%），留档 | MIT |
+五个上游项目均为 **MIT**。逐项采用/弃用对照见下方，完整致谢（含作者与学到的具体内容）在文首
+[**致谢**](#致谢)一节。
 
-本次新增：**改写后复检闭环** 与 **小句节奏盲区补丁**，两者五个前身都没有。
-品牌与「AI 率百分比」措辞已从继承代码中全部清除——它自己的规则禁止它输出那种数字。
+| 前身 | 采用的部分 |
+|---|---|
+| [ai-check](https://github.com/HoneyMeta/ai-check-skills) | 检测引擎口径、改写护栏、DOCX 改写与修订痕迹、报告骨架 |
+| [humanizer-zh-academic](https://github.com/redbaronyyyyy-eng/humanizer-zh-academic) | 16 种写作模式判据、对照示例、文体标定、噪声保留 |
+| [aigc-detector](https://github.com/free-revalution/AIGC-Detector-Pro) | 五维诊断的维度名称（分数制不采用） |
+| [chinese-thesis-workbench](https://github.com/ZyhSechub/chinese-thesis-workbench-skill) | 「不承诺绕过检测器」的边界与报告优先流程；检测器已弃用（误差 7/6 题） |
+| [aigc-down-skill](https://github.com/Yezery/aigc-down-skill) | 未并入（与 humanizer 相似度 76%），留档 |
 
-## 许可证
+本次新增、五个前身都没有的：**改写后复检闭环** 与 **小句节奏盲区补丁**。
+品牌与「AI 率百分比」措辞已从继承代码中全部清除——本项目的规则禁止它输出那种数字。
 
-MIT，见 [LICENSE](LICENSE)。衍生自上述五个 MIT 项目，保留其版权声明。
+MIT，见 [LICENSE](LICENSE)。衍生自上述五个 MIT 项目，**其原始版权声明与作者署名全部保留**。
